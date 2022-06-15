@@ -10,7 +10,7 @@ public class soma {
             FileWriter writer = new FileWriter("LogADD.txt", true);
             Scanner sc = new Scanner(System.in);
             double x, y, soma;
-            writer.append("\n(Powered by Jefftm)");
+            
             System.out.println("Digite o valor de x para adicição");
             System.out.println("Input the x value for adition");
             x = sc.nextDouble();
@@ -22,8 +22,10 @@ public class soma {
 
             System.out.printf("A soma de %s e %s eh %1.2f\n", x, y, soma);
             System.out.printf("The sum of %s and %s is %1.2f", x, y, soma);
+            writer.write("\n");
             writer.write(x + "  +  " + y + "  =  " + soma);
-            /* ("%f.0 + %f.0 = %f.0") */
+            writer.append("\n                                      (Powered by Jefftm)");
+            
             sc.close();
             writer.close();
         } catch (IOException e) {
