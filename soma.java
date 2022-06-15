@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.util.Locale;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class soma {
     public static void main(String[] args) {
@@ -9,6 +11,8 @@ public class soma {
         try {
             FileWriter writer = new FileWriter("LogADD.txt", true);
             Scanner sc = new Scanner(System.in);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
             double x, y, soma;
             
             System.out.println("Digite o valor de x para adicição");
@@ -22,9 +26,11 @@ public class soma {
 
             System.out.printf("A soma de %s e %s eh %1.2f\n", x, y, soma);
             System.out.printf("The sum of %s and %s is %1.2f", x, y, soma);
+            System.out.println(dtf.format(now));
             writer.write("\n");
             writer.write(x + "  +  " + y + "  =  " + soma);
-            writer.append("\n                                      (Powered by Jefftm)");
+            
+            writer.append("\n                                      (Powered by Jefftm)" + dtf.format(now));
             
             sc.close();
             writer.close();
